@@ -1,0 +1,32 @@
+/* Favorites.css */
+.favorites {
+    margin-top: 20px;
+  }
+  
+  .favorites h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .favorites ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .favorites li {
+    margin: 10px 0;
+  }
+  
+  .favorites button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .favorites button:hover {
+    background-color: #c82333;
+  }
+  
