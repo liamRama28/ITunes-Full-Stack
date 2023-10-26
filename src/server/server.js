@@ -2,12 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios'); // Import Axios for making HTTP requests
+const helmet = require('helmet'); // Import the helmet middleware
 
 const app = express();
 const port = process.env.PORT || 3001; // Define and assign the port
 
 app.use(bodyParser.json());
 app.use(cors());
+// Use helmet middleware to enhance your app's security
+app.use(helmet());
 
 // Route for searching iTunes content
 app.get('/api/search', async (req, res) => {
