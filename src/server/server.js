@@ -33,7 +33,7 @@ app.get('/api/search', async (req, res) => {
 });
 
 
-// Array to store user favorites (you can replace this with a database)
+// Array to store user favorites
 const favorites = [];
 
 // Route for managing favorites
@@ -59,3 +59,6 @@ app.post('/api/favorites', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+
+module.exports = app; // Export the Express app object

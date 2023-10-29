@@ -1,7 +1,6 @@
 //SearchResults.js
 import React from 'react';
-// Import the API functions you created in api.js
-import { searchItunes, addToFavorites } from './api';
+
 
 const SearchResults = ({ results, addToFavorites }) => {
   return (

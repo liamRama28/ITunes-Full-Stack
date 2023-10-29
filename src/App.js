@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
+import SearchBar from './SearchBar';
 
 const apiUrl = 'http://localhost:3001/api'; // Change this to match your backend URL
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedMediaType, setSelectedMediaType] = useState('all'); // Initialize with 'all'
+  const [selectedMediaType, setSelectedMediaType] = useState('all');
   const [searchResults, setSearchResults] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  // Function to fetch search results
   const fetchSearchResults = async () => {
     try {
       const response = await fetch(
@@ -26,14 +25,13 @@ function App() {
     }
   };
 
-  // Function to add an item to favorites
   const addToFavorites = (item) => {
     setFavorites([...favorites, item]);
   };
 
-  // Function to handle media type change
-  const handleMediaTypeChange = (mediaType) => {
-    setSelectedMediaType(mediaType);
+  const removeFromFavorites = (trackId) => {
+    const updatedFavorites = favorites.filter((favorite) => favorite.trackId !== trackId);
+    setFavorites(updatedFavorites);
   };
 
   useEffect(() => {
@@ -56,7 +54,7 @@ function App() {
         />
         <select
           value={selectedMediaType}
-          onChange={(e) => handleMediaTypeChange(e.target.value)}
+          onChange={(e) => setSelectedMediaType(e.target.value)}
         >
           <option value="all">All</option>
           <option value="music">Music</option>
@@ -84,7 +82,10 @@ function App() {
       <h2>Favorites</h2>
       <ul>
         {favorites.map((favorite) => (
-          <li key={favorite.trackId}>{favorite.trackName}</li>
+          <li key={favorite.trackId}>
+            {favorite.trackName}
+            <button onClick={() => removeFromFavorites(favorite.trackId)}>Remove</button>
+          </li>
         ))}
       </ul>
     </div>

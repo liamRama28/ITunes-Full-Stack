@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+body {
+  background-color: #333; /* Dark gray background */
+  color: white; /* White text */
+}
+
+button {
+  background-color: #01aeda96; /* Blue buttons */
+  color: white; /* White text on buttons */
+}
+
+
+
